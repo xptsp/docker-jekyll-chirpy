@@ -1,0 +1,14 @@
+services:
+  jekyll:
+    image: xptsp/jekyll-chirpy:latest
+    container_name: jekyll
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    volumes:
+      - ./site:/srv/jekyll
+    environment:
+      - JEKYLL_ENV=development
+      - PUID=1000
+      - PGID=1000
+    restart: unless-stopped
